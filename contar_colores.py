@@ -8,7 +8,7 @@ hoja = wb.active
 
 # Colores a buscar
 color_rojo = ImageColor.getrgb("#FF0000")  # Rojo
-color_naranja = ImageColor.getrgb("#FFA500")  # Naranja
+color_naranja = ImageColor.getrgb("#FF9900")  # Naranja (ajustado)
 
 # Diccionario para contar celdas por columna
 conteo_columnas = {}
@@ -40,9 +40,11 @@ for fila in hoja.iter_rows(min_row=2):  # Saltar la fila de encabezados
                 elif len(hex_color) != 6:
                     continue
 
+                # Obtener el encabezado correspondiente
                 col_index = celda.column - 1
                 header = encabezados[col_index]
 
+                # Comparar los colores y contar
                 if hex_color[:6].upper() == f'{color_rojo[0]:02X}{color_rojo[1]:02X}{color_rojo[2]:02X}':
                     conteo_columnas[header]['rojo'] += 1
                 elif hex_color[:6].upper() == f'{color_naranja[0]:02X}{color_naranja[1]:02X}{color_naranja[2]:02X}':
