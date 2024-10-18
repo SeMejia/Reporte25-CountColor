@@ -8,7 +8,7 @@ hoja = wb.active
 
 # Colores a buscar
 color_rojo = ImageColor.getrgb("#FF0000")  # Rojo
-color_naranja = ImageColor.getrgb("#FF9900")  # Naranja (ajustado)
+color_naranja = ImageColor.getrgb("#FF9900")  # Naranja
 
 # Diccionario para contar celdas por columna
 conteo_columnas = {}
@@ -62,6 +62,13 @@ hoja_nueva.append(['Encabezado', 'Celdas Rojas', 'Celdas Naranjas'])
 # Escribir los conteos por cada encabezado
 for header, conteo in conteo_columnas.items():
     hoja_nueva.append([header, conteo['rojo'], conteo['naranja']])
+
+# Calcular totales
+total_rojo = sum(conteo['rojo'] for conteo in conteo_columnas.values())
+total_naranja = sum(conteo['naranja'] for conteo in conteo_columnas.values())
+
+# Agregar totales al final
+hoja_nueva.append(['Total', total_rojo, total_naranja])
 
 # Guardar el nuevo archivo
 wb_nuevo.save(nuevo_archivo)
