@@ -2,7 +2,7 @@ import openpyxl
 from PIL import ImageColor
 
 # Cargar el archivo Excel original
-archivo = 'C:\\Users\\Sindy Mejia\\Documents\\Reporte 25+ Color\\Reporte25-CountColor\\Reporte 25+ Semana 07-13 Octubre 2024.xlsx'
+archivo = 'C:\\Users\\Sindy Mejia\\Documents\\Reporte 25+ Color\\Reporte25-CountColor\\Reporte 25+ Contar.xlsx'
 wb = openpyxl.load_workbook(archivo)
 hoja = wb.active
 
